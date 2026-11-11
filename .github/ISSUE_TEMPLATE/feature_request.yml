@@ -1,0 +1,24 @@
+name: Suggest a feature
+description: An idea that would make Tetra Mix better for your church or event
+labels: ["idea"]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What would you like to do?
+      description: Describe what you are trying to achieve, not only the button you want.
+    validations:
+      required: true
+  - type: textarea
+    id: today
+    attributes:
+      label: How do you do it today?
+  - type: dropdown
+    id: use
+    attributes:
+      label: Where do you use Tetra Mix?
+      options:
+        - Church service
+        - Event / conference
+        - Personal streaming
+        - Other

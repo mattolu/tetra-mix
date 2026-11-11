@@ -1,0 +1,52 @@
+name: Report a problem
+description: Something in Tetra Mix is not working as expected
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve Tetra Mix. Please do not include stream keys, passwords or other private details.
+  - type: input
+    id: version
+    attributes:
+      label: Tetra Mix version
+      description: Shown on the System Check screen (for example v0.1.0)
+      placeholder: v0.1.0
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to make it happen again
+      placeholder: |
+        1. Add a camera input
+        2. Press TAKE
+        3. ...
+  - type: dropdown
+    id: gpu
+    attributes:
+      label: Graphics card
+      options:
+        - NVIDIA
+        - AMD
+        - Intel
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      placeholder: Windows 11 24H2
+  - type: textarea
+    id: logs
+    attributes:
+      label: Screenshots or logs (optional)
+      description: Drag images here. Logs are in your Temp folder, named tetra_vmix_*.log

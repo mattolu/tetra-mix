@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ask a question
+    url: https://github.com/mattolu/tetra-mix/discussions
+    about: Questions, tips and help from other users
+  - name: No GitHub account? Email us
+    url: mailto:tetramostechnologies@gmail.com
+    about: tetramostechnologies@gmail.com

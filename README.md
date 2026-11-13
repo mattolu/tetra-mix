@@ -10,6 +10,10 @@ Switch cameras, show scripture and lyrics automatically as the preacher speaks, 
 
 **Free download from the Microsoft Store:** https://apps.microsoft.com/detail/9NQ484L0J48M
 
+<img src="assets/tetra-mix-store-qr.png" width="160" alt="QR code: Tetra Mix on the Microsoft Store"/>
+
+Scan with your phone camera to open the Store page.
+
 ---
 
 ## What it does

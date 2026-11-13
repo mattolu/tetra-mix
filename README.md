@@ -4,7 +4,11 @@
 
 Switch cameras, show scripture and lyrics automatically as the preacher speaks, add titles, and stream to several platforms at once while recording.
 
-> **Download:** coming soon on the Microsoft Store. The link will appear here once it is approved.
+<a href="https://apps.microsoft.com/detail/9NQ484L0J48M?mode=direct">
+  <img src="https://get.microsoft.com/images/en-us%20dark.svg" width="200" alt="Get Tetra Mix from the Microsoft Store"/>
+</a>
+
+**Free download from the Microsoft Store:** https://apps.microsoft.com/detail/9NQ484L0J48M
 
 ---
 

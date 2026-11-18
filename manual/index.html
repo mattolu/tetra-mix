@@ -1,0 +1,1402 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tetra Mix User Manual</title>
+<meta name="description" content="How to use Tetra Mix: live switching, graphics, auto-cued scripture and lyrics, streaming, recording and presentation for churches, events and streamers.">
+<style>
+:root { --bg:#ffffff; --panel:#f5f7fb; --text:#1b1f27; --muted:#5b6475; --line:#dfe3ea; --accent:#3d6df2; --head:#0f2a6b; --code:#eef1f6; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0e1117; --panel:#151a23; --text:#e6e9ef; --muted:#9aa3b2; --line:#262d3a; --accent:#7ea2ff; --head:#c9d6ff; --code:#1c2230; } }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+body { margin:0; background:var(--bg); color:var(--text); font: 16px/1.6 'Segoe UI', system-ui, -apple-system, Arial, sans-serif; }
+.layout { display:grid; grid-template-columns: 290px minmax(0,1fr); max-width: 1320px; margin: 0 auto; }
+nav { position: sticky; top:0; height:100vh; overflow-y:auto; padding: 24px 18px; border-right:1px solid var(--line); background:var(--panel); font-size:14px; }
+nav .brand { display:flex; align-items:center; gap:10px; font-weight:700; font-size:17px; margin-bottom:6px; color:var(--text); text-decoration:none; }
+nav .logo { width:26px; height:26px; border-radius:7px; background:linear-gradient(140deg,#5b8cff,#8f5bff); }
+nav .ver { color:var(--muted); font-size:13px; margin-bottom:14px; }
+nav .pdf { display:block; text-align:center; padding:8px 10px; border-radius:8px; background:var(--accent); color:#fff; text-decoration:none; font-weight:600; margin-bottom:16px; }
+nav a.sec { display:block; padding:5px 8px; border-radius:6px; color:var(--text); text-decoration:none; }
+nav a.sec:hover { background:var(--code); }
+main { padding: 32px 48px 80px; min-width:0; }
+h1 { font-size: 34px; margin: 0 0 8px; }
+h2 { font-size: 26px; color:var(--head); margin-top: 56px; padding-top: 8px; border-top:1px solid var(--line); }
+h3 { font-size: 20px; color:var(--head); margin-top: 32px; }
+h4 { font-size: 17px; margin-top: 24px; }
+a { color: var(--accent); }
+img { max-width:100%; height:auto; display:block; margin: 12px 0 20px; border-radius:8px; border:1px solid var(--line); box-shadow:0 2px 12px rgba(0,0,0,.18); }
+a.shot { display:inline-block; max-width:100%; }
+table { border-collapse:collapse; width:100%; margin: 12px 0 24px; font-size: 15px; display:block; overflow-x:auto; }
+th, td { border:1px solid var(--line); padding: 7px 10px; text-align:left; vertical-align:top; }
+th { background: var(--panel); }
+td img { margin: 4px 0; }
+code { background:var(--code); padding: 1px 5px; border-radius:4px; font-size: 14px; }
+blockquote { margin: 16px 0; padding: 8px 16px; border-left: 3px solid var(--accent); background: var(--panel); }
+hr { border:0; border-top:1px solid var(--line); margin: 32px 0; }
+.menu { display:none; }
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  nav { position: static; height:auto; border-right:0; border-bottom:1px solid var(--line); }
+  nav .links { display:none; }
+  nav.open .links { display:block; }
+  .menu { display:block; width:100%; padding:8px; border-radius:8px; border:1px solid var(--line); background:var(--bg); color:var(--text); font:inherit; margin-bottom:8px; }
+  main { padding: 20px 16px 60px; }
+  h1 { font-size: 28px; }
+}
+</style>
+</head><body>
+<div class="layout">
+<nav id="nav">
+  <a class="brand" href="#"><span class="logo"></span>Tetra Mix</a>
+  <div class="ver">User Manual · version 0.1.1</div>
+  <a class="pdf" href="Tetra-Mix-User-Manual.pdf">Download PDF</a>
+  <button class="menu" onclick="document.getElementById('nav').classList.toggle('open')">Contents ▾</button>
+  <div class="links">
+    <a class="sec" href="#1-before-you-start">1. Before you start</a>
+    <a class="sec" href="#2-a-tour-of-the-screen">2. A tour of the screen</a>
+    <a class="sec" href="#3-inputs-bringing-in-cameras-media-and-more">3. Inputs: bringing in cameras, media and more</a>
+    <a class="sec" href="#4-mixing-getting-pictures-on-air">4. Mixing: getting pictures on air</a>
+    <a class="sec" href="#5-building-layouts-the-preview-stage">5. Building layouts: the Preview stage</a>
+    <a class="sec" href="#6-scenes-saved-looks">6. Scenes: saved looks</a>
+    <a class="sec" href="#7-audio-mixing">7. Audio mixing</a>
+    <a class="sec" href="#8-titles-and-lower-thirds">8. Titles and lower thirds</a>
+    <a class="sec" href="#9-ai-auto-cue-scripture-and-songs-that-follow-the-speaker">9. AI Auto-cue: scripture and songs that follow the speaker</a>
+    <a class="sec" href="#10-social-handles">10. Social handles</a>
+    <a class="sec" href="#11-live-captions">11. Live captions</a>
+    <a class="sec" href="#12-vertical-916-for-tiktok-reels-and-shorts">12. Vertical 9:16 for TikTok, Reels and Shorts</a>
+    <a class="sec" href="#13-going-live-streaming-platforms">13. Going live: streaming platforms</a>
+    <a class="sec" href="#14-recording-and-instant-replay">14. Recording and instant replay</a>
+    <a class="sec" href="#15-calls-virtual-camera-and-ndi-output">15. Calls, virtual camera and NDI output</a>
+    <a class="sec" href="#16-the-projector-the-screens-in-the-room">16. The projector (the screens in the room)</a>
+    <a class="sec" href="#17-the-presentation-workspace">17. The Presentation workspace</a>
+    <a class="sec" href="#18-cameras-ai-director-auto-framing-and-ptz">18. Cameras: AI director, auto-framing and PTZ</a>
+    <a class="sec" href="#19-macros-automating-the-routine">19. Macros: automating the routine</a>
+    <a class="sec" href="#20-remote-control-midi-and-stream-deck">20. Remote control, MIDI and Stream Deck</a>
+    <a class="sec" href="#21-setups-saving-and-opening-a-whole-show">21. Setups: saving and opening a whole show</a>
+    <a class="sec" href="#22-settings-languages-and-use-modes">22. Settings, languages and use modes</a>
+    <a class="sec" href="#23-keyboard-shortcuts-and-the-command-palette">23. Keyboard shortcuts and the command palette</a>
+    <a class="sec" href="#24-troubleshooting">24. Troubleshooting</a>
+    <a class="sec" href="#25-glossary">25. Glossary</a>
+  </div>
+</nav>
+<main>
+<h1 id="tetra-mix-user-manual">Tetra Mix — User Manual</h1>
+<p><strong>Version 0.1.1</strong> · Live production for churches, events and streamers</p>
+<p>Tetra Mix is a live video switcher, graphics system, streaming encoder, recorder and presentation (slides, lyrics and scripture) system in one Windows application. This manual walks through everything the app can do, in the order you are likely to need it on the day.</p>
+<p>Every picture in this manual is a real screenshot of Tetra Mix. The sample "cameras" in them are test videos.</p>
+<p><a class="shot" href="images/switcher-overview.png" target="_blank" rel="noopener"><img alt="The Switcher workspace" src="images/switcher-overview.png" /></a></p>
+<hr />
+<h2 id="1-before-you-start">1. Before you start</h2>
+<h3 id="what-you-need">What you need</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Computer</strong></td>
+<td>Windows 10 or 11, 64-bit</td>
+</tr>
+<tr>
+<td><strong>Graphics</strong></td>
+<td>An NVIDIA graphics card gives the best experience (hardware video encoding and all AI features). AMD, Intel and CPU-only computers are also supported, with some AI features running more slowly.</td>
+</tr>
+<tr>
+<td><strong>Internet</strong></td>
+<td>For streaming, an upload speed comfortably above your stream's bitrate. The app can measure it for you (see <a href="#13-going-live-streaming-platforms">section 13</a>).</td>
+</tr>
+<tr>
+<td><strong>Optional</strong></td>
+<td>Cameras (USB, capture cards, Blackmagic DeckLink, NDI, phones), a microphone or audio interface, a projector or second screen, a MIDI controller or Stream Deck.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="first-launch">First launch</h3>
+<p>When Tetra Mix starts, the logo spins while the video engine (the part that actually mixes the video) starts up. When the status bar at the bottom says <strong>Video engine ready</strong>, you can work.</p>
+<p>The first time, the app asks <strong>what you will use it for</strong> — Church, Events, Education or General. This only changes the words the app uses (for example "Service" or "Event", "Sermon points" or "Key points"), and hides features you won't need (such as the Bible panel outside Church mode). You can change it at any time from the top bar.</p>
+<h3 id="system-check">System check</h3>
+<p>Open the command palette (<strong>Ctrl+K</strong>) and run <strong>System check</strong> to confirm your graphics card, driver and encoder are supported. Each area — Switching, GPU encoding and AI features — gets a clear verdict.</p>
+<p><a class="shot" href="images/system-check.png" target="_blank" rel="noopener"><img alt="System check" src="images/system-check.png" loading="lazy" /></a></p>
+<hr />
+<h2 id="2-a-tour-of-the-screen">2. A tour of the screen</h2>
+<p>Tetra Mix has two <strong>workspaces</strong>, switched with the tabs at the top left:</p>
+<ul>
+<li><strong>Switcher</strong> (<strong>Ctrl+1</strong>) — cameras, mixing, graphics, audio and outputs.</li>
+<li><strong>Presentation</strong> (<strong>Ctrl+2</strong>) — the service or event running order, songs, slides, scripture and the projector.</li>
+</ul>
+<p>Both stay running when you switch between them, so nothing you have prepared is lost.</p>
+<p><a class="shot" href="images/switcher-overview.png" target="_blank" rel="noopener"><img alt="The Switcher workspace" src="images/switcher-overview.png" loading="lazy" /></a></p>
+<h3 id="the-top-bar">The top bar</h3>
+<p><a class="shot" href="images/top-bar.png" target="_blank" rel="noopener"><img alt="Top bar" src="images/top-bar.png" loading="lazy" /></a></p>
+<p>From left to right:</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Switcher / Presentation</strong></td>
+<td>Switch workspace.</td>
+</tr>
+<tr>
+<td><strong>Setup name</strong> (e.g. <em>Untitled setup</em>)</td>
+<td>Your saved show. Click it to save, open or import a setup (<a href="#21-setups-saving-and-opening-a-whole-show">section 21</a>). The dot shows unsaved changes.</td>
+</tr>
+<tr>
+<td><strong>ON AIR · …</strong> badge</td>
+<td>Appears when a graphic (title, verse, lyric) is over the Program picture. It says <strong>CUED</strong> (blue) when the graphic is only waiting on Preview. Click it to clear the graphic.</td>
+</tr>
+<tr>
+<td><strong>OFF AIR / ON AIR 00:00</strong></td>
+<td>Whether you are streaming, and for how long.</td>
+</tr>
+<tr>
+<td><strong>Audio</strong></td>
+<td>Opens the audio mixer as a drawer (useful from the Presentation workspace).</td>
+</tr>
+<tr>
+<td><strong>Monitor icon</strong></td>
+<td>Video settings: resolution, frame rate, stream bitrate.</td>
+</tr>
+<tr>
+<td><strong>Phone icon</strong></td>
+<td>Remote control for phones, tablets and Stream Deck.</td>
+</tr>
+<tr>
+<td><strong>Church / Events / …</strong></td>
+<td>What the app is used for (changes wording).</td>
+</tr>
+<tr>
+<td><strong>English / Yorùbá</strong></td>
+<td>Language of the app.</td>
+</tr>
+<tr>
+<td><strong>Ctrl K</strong></td>
+<td>Command palette — search for any action.</td>
+</tr>
+<tr>
+<td><strong>Keyboard icon</strong></td>
+<td>Keyboard shortcut map (<strong>?</strong>).</td>
+</tr>
+<tr>
+<td><strong>ⓘ</strong></td>
+<td>About Tetra Mix: version, feedback, support, licences.</td>
+</tr>
+</tbody>
+</table>
+<p><a class="shot" href="images/top-bar-right.png" target="_blank" rel="noopener"><img alt="Right side of the top bar" src="images/top-bar-right.png" loading="lazy" /></a></p>
+<h3 id="the-status-bar">The status bar</h3>
+<p>The thin bar at the bottom shows engine health, and the computer's <strong>CPU, RAM, GPU and VRAM</strong> use. Hover over the figures for a breakdown per process. On the right it reminds you of the most useful keys for the workspace you are in.</p>
+<p><a class="shot" href="images/status-bar.png" target="_blank" rel="noopener"><img alt="Status bar" src="images/status-bar.png" loading="lazy" /></a></p>
+<h3 id="the-switcher-layout">The Switcher layout</h3>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Left column</td>
+<td><strong>Scenes</strong> (saved looks) above <strong>Inputs</strong> (every camera, video, picture, etc.).</td>
+</tr>
+<tr>
+<td>Centre</td>
+<td><strong>Preview</strong> (green, what you are preparing) and <strong>Program</strong> (red, what is on air) monitors, the <strong>Master</strong> audio meter between them, the <strong>transition bar</strong>, and the <strong>Multiview</strong> tiles.</td>
+</tr>
+<tr>
+<td>Right column</td>
+<td><strong>AI Auto-cue</strong> above <strong>Titles</strong>.</td>
+</tr>
+<tr>
+<td>Bottom band</td>
+<td><strong>Preview stage</strong> (layout builder), <strong>Vertical 9:16</strong>, <strong>Audio</strong> mixer, and the <strong>Operations dock</strong> (Outputs, Calls, Recording, Replay, Social, Macros, Captions, Cameras, Controllers).</td>
+</tr>
+</tbody>
+</table>
+<p>Every border between areas can be <strong>dragged</strong> to resize. Double-click a border to reset it, or run <strong>Reset panel layout</strong> from the command palette. Sizes are remembered on this computer.</p>
+<hr />
+<h2 id="3-inputs-bringing-in-cameras-media-and-more">3. Inputs: bringing in cameras, media and more</h2>
+<p>An <strong>input</strong> is anything that can be shown: a camera, a video file, a picture, a screen, a window, a phone, a document, a clock, a web page.</p>
+<p><a class="shot" href="images/inputs.png" target="_blank" rel="noopener"><img alt="The Inputs panel" src="images/inputs.png" loading="lazy" /></a></p>
+<h3 id="loading-cameras">Loading cameras</h3>
+<p>Click <strong>Cameras</strong> at the top of the Inputs panel to bring in every connected camera at once. The number on the button shows how many cameras are connected; the tooltip says how many are not loaded yet.</p>
+<h3 id="adding-an-input">Adding an input</h3>
+<p>Click <strong>+ Add</strong>. The add sheet has five tabs:</p>
+<h4 id="device">Device</h4>
+<p>All input types available on this computer:</p>
+<p><a class="shot" href="images/add-input-device.png" target="_blank" rel="noopener"><img alt="Add input — Device tab" src="images/add-input-device.png" loading="lazy" /></a></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Image</strong></td>
+<td>A still picture (PNG, JPG…).</td>
+</tr>
+<tr>
+<td><strong>Color</strong></td>
+<td>A plain colour background.</td>
+</tr>
+<tr>
+<td><strong>Image Slide Show</strong></td>
+<td>A folder of pictures shown in turn.</td>
+</tr>
+<tr>
+<td><strong>Browser</strong></td>
+<td>A web page (for web-based graphics or a live scoreboard).</td>
+</tr>
+<tr>
+<td><strong>Media</strong></td>
+<td>A video or audio file (MP4, MOV, MKV, 3GP, MP3…). Loops by default.</td>
+</tr>
+<tr>
+<td><strong>Text (GDI+)</strong></td>
+<td>Simple text.</td>
+</tr>
+<tr>
+<td><strong>VLC Video</strong></td>
+<td>A playlist of videos played through VLC.</td>
+</tr>
+<tr>
+<td><strong>Display Capture</strong></td>
+<td>A whole monitor.</td>
+</tr>
+<tr>
+<td><strong>Window Capture</strong></td>
+<td>One application window (see the Application tab for the easy way).</td>
+</tr>
+<tr>
+<td><strong>Game Capture</strong></td>
+<td>A full-screen game or program.</td>
+</tr>
+<tr>
+<td><strong>Video Capture Device</strong></td>
+<td>A webcam, capture card or USB camera.</td>
+</tr>
+<tr>
+<td><strong>Audio Input Capture</strong></td>
+<td>A microphone or audio interface.</td>
+</tr>
+<tr>
+<td><strong>Audio Output Capture</strong></td>
+<td>The sound coming out of this computer.</td>
+</tr>
+<tr>
+<td><strong>Application Audio Capture</strong></td>
+<td>The sound of one application only (beta).</td>
+</tr>
+<tr>
+<td><strong>NDI® Source</strong></td>
+<td>A camera or computer on the network sending NDI (needs the free NDI runtime).</td>
+</tr>
+<tr>
+<td><strong>WebRTC Camera</strong></td>
+<td>A camera sending over WebRTC/WHIP.</td>
+</tr>
+<tr>
+<td><strong>Blackmagic card</strong></td>
+<td>Blackmagic DeckLink capture cards appear here when one is installed.</td>
+</tr>
+<tr>
+<td><strong>Clock</strong></td>
+<td>Countdowns, timers and clocks (see below).</td>
+</tr>
+</tbody>
+</table>
+<p>When a type needs a device or a file, you choose it next.</p>
+<h4 id="application">Application</h4>
+<p>The quickest way to show PowerPoint, a browser, Zoom or any other program: pick the window from the list. Type in the filter box to find it, and tick <strong>Include minimised windows</strong> if the one you want is minimised (it captures black until you restore it).</p>
+<p><a class="shot" href="images/add-input-application.png" target="_blank" rel="noopener"><img alt="Add input — Application tab" src="images/add-input-application.png" loading="lazy" /></a></p>
+<h4 id="document">Document</h4>
+<p>Click <strong>Choose files…</strong> and pick PDF, PowerPoint, Excel, Word or image files. Each one is <strong>converted once, on import</strong>, into pages you can step through and cut to like any other input. PowerPoint does not need to be running during the service.</p>
+<p><a class="shot" href="images/add-input-document.png" target="_blank" rel="noopener"><img alt="Add input — Document tab" src="images/add-input-document.png" loading="lazy" /></a></p>
+<h4 id="phone">Phone</h4>
+<p>Use any iPhone or Android phone as a wireless camera:</p>
+<ul>
+<li><strong>In the browser (no app)</strong> — nothing to install; the camera runs in the phone's web browser. Type a camera name and click <strong>Add browser camera</strong>, then open the link it shows on the phone.</li>
+<li><strong>With an app (best quality)</strong> — for the best picture over weak Wi-Fi. Each phone gets its own input and its own encrypted connection, and comes back by itself if it drops off the Wi-Fi. The app gives you a one-paste link for apps such as Larix Broadcaster, and a setup file for the Blackmagic Camera app.</li>
+</ul>
+<p><a class="shot" href="images/add-input-phone-browser.png" target="_blank" rel="noopener"><img alt="Add input — Phone, browser" src="images/add-input-phone-browser.png" loading="lazy" /></a>
+<a class="shot" href="images/add-input-phone-app.png" target="_blank" rel="noopener"><img alt="Add input — Phone, with an app" src="images/add-input-phone-app.png" loading="lazy" /></a></p>
+<h4 id="clock">Clock</h4>
+<p>Ready-made clocks for services and events:</p>
+<ul>
+<li><strong>Service countdown</strong> — "Service begins in 05:00".</li>
+<li><strong>Starts at a time</strong> — counts down to a time of day.</li>
+<li><strong>Corner clock</strong> — the time of day in a corner.</li>
+<li><strong>Sermon timer</strong> — a stopwatch for the speaker.</li>
+</ul>
+<p>You can then fine-tune what it <strong>shows</strong> (countdown, countdown to a time, time of day, stopwatch), the <strong>minutes</strong>, a <strong>heading</strong>, text to show <strong>at zero</strong> (e.g. "Welcome!"), the <strong>look</strong> (full screen on its own background, a panel over the picture, or text only over the picture), <strong>size</strong> and <strong>colours</strong>. The engine keeps the clock running even if the window is closed.</p>
+<p><a class="shot" href="images/add-input-clock.png" target="_blank" rel="noopener"><img alt="Add input — Clock tab" src="images/add-input-clock.png" loading="lazy" /></a>
+<a class="shot" href="images/clock-on-preview.png" target="_blank" rel="noopener"><img alt="A countdown on Preview" src="images/clock-on-preview.png" loading="lazy" /></a></p>
+<p>After adding a clock, its settings (⚙) let you <strong>Pause</strong>, <strong>Restart</strong>, change the length or heading, and change look and position.</p>
+<p><a class="shot" href="images/clock-controls.png" target="_blank" rel="noopener"><img alt="Clock controls" src="images/clock-controls.png" loading="lazy" /></a></p>
+<h3 id="working-with-inputs">Working with inputs</h3>
+<p>Each input row shows:</p>
+<ul>
+<li>its <strong>number</strong> (used by the F-keys) and <strong>name</strong>;</li>
+<li>a <strong>PREVIEW</strong> or <strong>ON AIR</strong> label, and a coloured border, when it is on Preview (green) or Program (red);</li>
+<li>a live <strong>sound meter</strong> and a <strong>sound on/off</strong> button;</li>
+<li>for video files: <strong>play/pause</strong>, <strong>back to the start</strong>, <strong>stop</strong>, a <strong>position slider</strong>, <strong>loop on/off</strong>, and <strong>Start from the top on TAKE</strong> (so the video always begins at the start when it goes on air);</li>
+<li><strong>Settings</strong> (sliders icon) — rename the input, change its file or device, and other options for its type;</li>
+<li><strong>Remove</strong> (×).</li>
+</ul>
+<p><strong>Click an input</strong> to stage it on Preview. It is never put straight on air by a single click.</p>
+<hr />
+<h2 id="4-mixing-getting-pictures-on-air">4. Mixing: getting pictures on air</h2>
+<p>This is the heart of Tetra Mix. It works like a professional broadcast switcher.</p>
+<h3 id="preview-and-program">Preview and Program</h3>
+<p><a class="shot" href="images/monitors.png" target="_blank" rel="noopener"><img alt="Preview and Program monitors" src="images/monitors.png" loading="lazy" /></a></p>
+<ul>
+<li><strong>PREVIEW</strong> (green, left) is what you are <strong>preparing</strong>. Nobody watching sees it.</li>
+<li><strong>PROGRAM</strong> (red, right) is what is <strong>on air</strong>: the stream, the recording, the projector when it shows Program, and any NDI or virtual camera output.</li>
+<li><strong>MASTER</strong> between them is the level meter for the sound going out.</li>
+</ul>
+<p>You build the next shot on Preview, then <strong>TAKE</strong> it to Program with a transition. After a take, what was on Program comes back to Preview, so pressing TAKE again swaps back.</p>
+<h3 id="ways-to-put-something-on-preview">Ways to put something on Preview</h3>
+<table>
+<thead>
+<tr>
+<th>How</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Click an input in <strong>Inputs</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Click a <strong>Multiview</strong> tile</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>F1–F12</strong></td>
+<td>Stage input 1–12.</td>
+</tr>
+<tr>
+<td>Click a <strong>Scene</strong></td>
+<td>Loads that saved look onto Preview.</td>
+</tr>
+<tr>
+<td>Build a layout on the <strong>Preview stage</strong></td>
+<td>Picture-in-picture, side by side, etc.</td>
+</tr>
+<tr>
+<td><strong>Cue</strong> a title or verse</td>
+<td>Graphics can wait on Preview too.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ways-to-take-preview-to-program">Ways to take Preview to Program</h3>
+<table>
+<thead>
+<tr>
+<th>How</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Space</strong> or <strong>Enter</strong></td>
+<td>TAKE with the armed transition.</td>
+</tr>
+<tr>
+<td>Click a <strong>transition button</strong></td>
+<td>Fires that transition.</td>
+</tr>
+<tr>
+<td><strong>Double-click</strong> a multiview tile</td>
+<td>Stages that input and takes it with the armed transition.</td>
+</tr>
+<tr>
+<td>Drag the <strong>T-bar</strong></td>
+<td>Mix by hand, at your own speed.</td>
+</tr>
+<tr>
+<td><strong>Shift+F1–F12</strong></td>
+<td>Cut input 1–12 straight to Program (skips Preview).</td>
+</tr>
+<tr>
+<td><strong>Shift+click</strong> a multiview tile</td>
+<td>Cut that input straight to Program.</td>
+</tr>
+<tr>
+<td>From a phone in Operator mode</td>
+<td>CUT or FADE buttons.</td>
+</tr>
+<tr>
+<td>A <strong>macro</strong>, a <strong>MIDI pad</strong> or a <strong>Stream Deck</strong> button</td>
+<td>See sections 19–20.</td>
+</tr>
+<tr>
+<td>The <strong>AI director</strong> with auto-take on</td>
+<td>See <a href="#18-cameras-ai-director-auto-framing-and-ptz">section 18</a>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-transition-bar">The transition bar</h3>
+<p><a class="shot" href="images/transition-bar.png" target="_blank" rel="noopener"><img alt="Transition bar" src="images/transition-bar.png" loading="lazy" /></a></p>
+<p><strong>Transitions</strong> — press the number key to <strong>arm</strong> one (the armed one has a red outline), then <strong>Space</strong> takes it:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Transition</th>
+<th>What it looks like</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td><strong>Cut</strong></td>
+<td>Instant change.</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>Fade</strong></td>
+<td>Cross-dissolve from one picture to the other.</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong>Slide</strong></td>
+<td>The new picture slides in, pushing the old one out.</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td><strong>Wipe</strong></td>
+<td>A shaped edge sweeps across. The <strong>Wipe style</strong> list has 34 shapes: barn doors, blinds, boxes, burst, checkerboard, circles, clock, cloud, curtain, fan, fractal, iris, linear (horizontal, vertical, diagonal), zigzags, sine wave, spiral, squares, stripes, strips, watercolour and more.</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td><strong>Move</strong></td>
+<td>Items that are in both shots glide from their old place to their new one.</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td><strong>Stinger</strong></td>
+<td>A short animated video clip plays over the change (for example a logo sweep). Choose the clip under <strong>Stinger clip</strong>. The <strong>duration</strong> sets the <em>cut point</em> — how far into the clip the picture underneath changes.</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td><strong>Glide</strong></td>
+<td>Cuts to the new layout, then animates the boxes into place — a smooth picture-in-picture or side-by-side reveal.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Duration</strong> — drag the slider or click <strong>0.3</strong>, <strong>0.5</strong> or <strong>1.0</strong> seconds. (Cut is always instant.)</p>
+<p>After a take, the bar briefly confirms it ("fade taken") and notes what <strong>Space</strong> will repeat.</p>
+<h3 id="the-t-bar-mixing-by-hand">The T-bar: mixing by hand</h3>
+<p>Drag the <strong>T-bar</strong> slider to mix between Preview and Program at your own pace. Let go part-way and the mix <strong>holds</strong> there — both pictures are blended on air, and the bar shows the percentage. Push to the end to complete the take; bring it back to the start to cancel. Right-click the T-bar for <strong>Take the held mix to air</strong> or <strong>Cancel the held mix</strong>. The T-bar is not available for Cut.</p>
+<p><a class="shot" href="images/tbar-half-mix.png" target="_blank" rel="noopener"><img alt="A fade held at 50% with the T-bar — Program shows both shots blended, with the lower third staying on top" src="images/tbar-half-mix.png" loading="lazy" /></a></p>
+<h3 id="the-multiview">The Multiview</h3>
+<p>The Multiview shows a live tile for every video input. The input on Preview is outlined green (<strong>PVW</strong>); the one on Program is outlined red (<strong>PGM</strong>).</p>
+<p><a class="shot" href="images/multiview.png" target="_blank" rel="noopener"><img alt="Multiview" src="images/multiview.png" loading="lazy" /></a></p>
+<ul>
+<li><strong>Click</strong> — stage on Preview.</li>
+<li><strong>Double-click</strong> — take to air with the armed transition.</li>
+<li><strong>Shift+click</strong> — cut straight to air.</li>
+<li>Speaker icon — turn that input's sound on/off.</li>
+<li>Sliders icon — that input's audio settings.</li>
+<li><strong>Right-click</strong> — a menu with all of the above.</li>
+</ul>
+<p><a class="shot" href="images/multiview-menu.png" target="_blank" rel="noopener"><img alt="Multiview right-click menu" src="images/multiview-menu.png" loading="lazy" /></a></p>
+<h3 id="graphics-over-the-mix">Graphics over the mix</h3>
+<p>Graphics sit in layers <strong>on top of</strong> whatever camera shot is on Program, so you can change cameras freely without the graphics flickering or disappearing:</p>
+<ol>
+<li>Camera shot or layout (bottom)</li>
+<li>Lower third / verse / lyrics (titles)</li>
+<li>Social handles (they politely step aside while a lower third is up)</li>
+<li>Captions (top)</li>
+</ol>
+<p>A graphic can be <strong>cued on Preview</strong> first and then go on air with the next TAKE, or be put <strong>straight to air</strong> over the current shot.</p>
+<h3 id="sound-follows-the-picture">Sound follows the picture</h3>
+<p>By default each input's sound is <strong>AFV (audio follows video)</strong>: it is heard only while that input is on Program, and it fades with the picture during a transition. Turn AFV off for inputs that must always be heard, such as the pulpit microphone (<a href="#7-audio-mixing">section 7</a>).</p>
+<h3 id="locked-inputs-lock-to-the-screen">Locked inputs (lock to the screen)</h3>
+<p>On the Preview stage, <strong>Lock</strong> an item (for example a logo, a sign-language interpreter or a scoreboard) and it stays on screen through <strong>every</strong> take — cut, fade or direct cut — until you unlock it.</p>
+<h3 id="edit-layout-and-the-layout-editor-window">"Edit layout" and the layout editor window</h3>
+<p>Click <strong>Edit layout</strong> above the Preview monitor to arrange the picture directly on the big Preview monitor, with the same handles and guides as the Preview stage. Click <strong>Done</strong> when finished.</p>
+<p><a class="shot" href="images/edit-on-preview.png" target="_blank" rel="noopener"><img alt="Editing the layout directly on Preview" src="images/edit-on-preview.png" loading="lazy" /></a></p>
+<p>The <strong>⧉</strong> button next to it opens the layout editor in its own window, so you can put it on a second screen.</p>
+<hr />
+<h2 id="5-building-layouts-the-preview-stage">5. Building layouts: the Preview stage</h2>
+<p>The <strong>Preview stage</strong> (bottom left) is where you compose multi-camera layouts — picture-in-picture, side by side, three up — and style each picture.</p>
+<p><a class="shot" href="images/stage-pip.png" target="_blank" rel="noopener"><img alt="Preview stage with a picture-in-picture layout" src="images/stage-pip.png" loading="lazy" /></a></p>
+<h3 id="quick-layouts">Quick layouts</h3>
+<p>The buttons along the top arrange the inputs on the stage instantly:</p>
+<ul>
+<li><strong>Full</strong> — one input fills the screen.</li>
+<li><strong>Side by side</strong> — two inputs next to each other.</li>
+<li><strong>PiP</strong> — one input full screen with a small one in a corner.</li>
+<li><strong>Three up</strong> — three inputs.</li>
+</ul>
+<p>The chips under the stage list every input: <strong>+ Name</strong> puts it on the stage, <strong>× Name</strong> takes it off.</p>
+<p><strong>Add object</strong> brings in a new camera, picture, video, window, document, phone or clock and places it on top of the current layout.</p>
+<p><a class="shot" href="images/preview-side-by-side.png" target="_blank" rel="noopener"><img alt="A side-by-side layout on Preview" src="images/preview-side-by-side.png" loading="lazy" /></a></p>
+<h3 id="arranging-by-hand">Arranging by hand</h3>
+<ul>
+<li><strong>Drag</strong> a box to move it; drag a <strong>handle</strong> to resize.</li>
+<li><strong>Shift+click</strong> or drag a box around several to select more than one.</li>
+<li><strong>Arrow keys</strong> nudge; <strong>Alt</strong> while dragging turns snapping off.</li>
+<li><strong>Ctrl+Z / Ctrl+Y</strong> undo and redo.</li>
+<li>The alignment buttons line selected boxes up (left, centre, right, top, middle, bottom), spread them evenly, or make them the <strong>Same size</strong>.</li>
+</ul>
+<p>Guide toggles under the stage:</p>
+<table>
+<thead>
+<tr>
+<th>Toggle</th>
+<th>What it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Snap</strong></td>
+<td>Edges and centres snap to guides and other boxes.</td>
+</tr>
+<tr>
+<td><strong>Thirds</strong></td>
+<td>Rule-of-thirds lines.</td>
+</tr>
+<tr>
+<td><strong>Grid</strong></td>
+<td>A 12-column grid.</td>
+</tr>
+<tr>
+<td><strong>Safe areas</strong></td>
+<td>Broadcast action-safe (93%) and title-safe (90%) frames. Keep text inside the inner one.</td>
+</tr>
+<tr>
+<td><strong>Rulers</strong></td>
+<td>Rulers in canvas pixels — drag out of them to make your own guides.</td>
+</tr>
+<tr>
+<td><strong>L3 area</strong></td>
+<td>Shades where a lower third usually sits, so a picture-in-picture doesn't end up under it.</td>
+</tr>
+<tr>
+<td><strong>Keep shape</strong></td>
+<td>Resizing keeps the box's proportions (hold Shift to resize freely).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="layers-and-the-item-inspector">Layers and the item inspector</h3>
+<p><strong>Layers</strong> lists the boxes top first. Click to select, drag to restack. A box hidden behind another is marked <em>covered</em>.</p>
+<p>When a box is selected, the inspector below offers:</p>
+<ul>
+<li><strong>Replace with…</strong> — swap the picture inside this box for another input, keeping the box where it is.</li>
+<li><strong>Lock</strong> — keep this item on screen through every take (see <a href="#locked-inputs-lock-to-the-screen">section 4</a>).</li>
+<li><strong>Reset</strong> — undo the styling.</li>
+</ul>
+<p><a class="shot" href="images/stage-inspector.png" target="_blank" rel="noopener"><img alt="The item inspector" src="images/stage-inspector.png" loading="lazy" /></a></p>
+<p>Then six sections:</p>
+<h4 id="position-size">Position &amp; size</h4>
+<p>Exact <strong>X, Y, W, H</strong> in pixels or percent; <strong>Centre</strong>, <strong>Full frame</strong>, <strong>Fit box to picture</strong>, <strong>Fit</strong>; and layer order (<strong>Front, Forward, Backward, Back</strong>).</p>
+<p><a class="shot" href="images/item-position.png" target="_blank" rel="noopener"><img alt="Position &amp; size" src="images/item-position.png" loading="lazy" /></a></p>
+<h4 id="crop-zoom">Crop &amp; zoom</h4>
+<p>Pick a <strong>shape</strong> (Native, 16:9, 4:3, 1:1, 4:5, 9:16), then <strong>Zoom</strong>, <strong>Pan X/Y</strong> and <strong>Crop</strong> each edge. <strong>Push in</strong> makes a slow, smooth zoom — a classic "camera push" on a single camera.</p>
+<p><a class="shot" href="images/item-crop-zoom.png" target="_blank" rel="noopener"><img alt="Crop &amp; zoom" src="images/item-crop-zoom.png" loading="lazy" /></a></p>
+<h4 id="look">Look</h4>
+<p><strong>Corners</strong> (rounded), <strong>Border</strong> width and colour, <strong>Opacity</strong>, <strong>Shadow</strong>, <strong>Circle</strong> (round picture, great for a speaker in the corner), <strong>Card</strong>, and <strong>Blend</strong> mode (Normal, Screen, Multiply, Additive, Subtract, Lighten, Darken).</p>
+<p><a class="shot" href="images/item-look.png" target="_blank" rel="noopener"><img alt="Look" src="images/item-look.png" loading="lazy" /></a></p>
+<h4 id="colour-key">Colour &amp; key</h4>
+<ul>
+<li><strong>Green screen</strong> — key out green, blue or magenta, with similarity, smoothness and spill reduction.</li>
+<li><strong>Colour correction</strong> — brightness, contrast, saturation, gamma and hue.</li>
+<li><strong>LUT</strong> — apply a colour look-up table file (.cube) to match a camera to a grade.</li>
+</ul>
+<p><a class="shot" href="images/item-colour-key.png" target="_blank" rel="noopener"><img alt="Colour &amp; key" src="images/item-colour-key.png" loading="lazy" /></a></p>
+<h4 id="clean-up-match">Clean-up &amp; match</h4>
+<p>Clean up a noisy or soft camera: one-click <strong>Natural</strong>, <strong>Low light</strong> or <strong>Phone / stream</strong> presets, or set <strong>Denoise</strong>, <strong>Deblock</strong>, <strong>Sharpen</strong>, <strong>Exposure</strong>, <strong>Warmth</strong> and <strong>Tint</strong> by hand. <strong>Match camera</strong> steers this camera's exposure and white balance to match another camera. For interlaced (1080i) cameras there is <strong>Deinterlace</strong>, and <strong>Input range</strong> fixes washed-out or crushed blacks.</p>
+<p><a class="shot" href="images/item-cleanup.png" target="_blank" rel="noopener"><img alt="Clean-up &amp; match" src="images/item-cleanup.png" loading="lazy" /></a></p>
+<h4 id="3d">3D</h4>
+<p>Put the picture on a 3D plane. Presets: <strong>Flat, Turn left, Turn right, Card, Floor, Showcase</strong>; or set <strong>Turn, Tip, Roll, Size</strong> and <strong>Depth</strong> yourself. Add <strong>Motion</strong> (Still, Float, Swing, Spin), an <strong>Entrance</strong> (Flip in, Fly in, Rise up, Spin in — it plays each time the input goes on air, ▶ replays it), a soft <strong>Shadow</strong> and a moving <strong>Gloss</strong>. If the input is on Program, 3D changes show on air immediately.</p>
+<p><a class="shot" href="images/item-3d.png" target="_blank" rel="noopener"><img alt="3D controls" src="images/item-3d.png" loading="lazy" /></a>
+<a class="shot" href="images/3d-on-preview.png" target="_blank" rel="noopener"><img alt="A camera turned in 3D, with a picture-in-picture on top" src="images/3d-on-preview.png" loading="lazy" /></a></p>
+<hr />
+<h2 id="6-scenes-saved-looks">6. Scenes: saved looks</h2>
+<p>A <strong>scene</strong> is a saved arrangement of inputs. Build the look on Preview, then press <strong>+</strong> in the Scenes panel and name it.</p>
+<p><a class="shot" href="images/scenes.png" target="_blank" rel="noopener"><img alt="Scenes" src="images/scenes.png" loading="lazy" /></a></p>
+<ul>
+<li><strong>Click a scene</strong> to load it onto <strong>Preview</strong> — never straight to air — then TAKE it.</li>
+<li>Each scene card has buttons to <strong>Update</strong> it from what is on Preview now, <strong>Duplicate</strong> it, or <strong>Delete</strong> it.</li>
+</ul>
+<hr />
+<h2 id="7-audio-mixing">7. Audio mixing</h2>
+<p>The <strong>Audio</strong> mixer is always visible in the Switcher's bottom band, and opens as a drawer from the top bar's <strong>Audio</strong> button in either workspace.</p>
+<p><a class="shot" href="images/audio-mixer.png" target="_blank" rel="noopener"><img alt="Audio mixer" src="images/audio-mixer.png" loading="lazy" /></a></p>
+<h3 id="each-inputs-strip">Each input's strip</h3>
+<ul>
+<li><strong>Meter and fader</strong> — drag to set the level; <strong>double-click</strong> for 0 dB.</li>
+<li><strong>On</strong> — the input is in the mix. Click to turn it off.</li>
+<li><strong>AFV</strong> (audio follows video) — heard only while this input is on Program, and faded with it. Click to make the input independent (always heard while On). Use independent for microphones.</li>
+<li><strong>Headphones</strong> — listen to this input in your headphones.</li>
+<li><strong>Sliders</strong> — the processing chain (below).</li>
+</ul>
+<p>The <strong>Headphones</strong> list at the top chooses which audio device you monitor on. <strong>3/3 ON</strong> counts the inputs that are on.</p>
+<h3 id="processing-chain">Processing chain</h3>
+<p>Click the sliders icon on a strip. Processing runs top to bottom, is live, and is saved with the session.</p>
+<p><a class="shot" href="images/audio-processing.png" target="_blank" rel="noopener"><img alt="Audio processing for one input" src="images/audio-processing.png" loading="lazy" /></a></p>
+<p><strong>Start from a preset</strong>, then fine-tune: <strong>Speech mic</strong>, <strong>Singer</strong>, <strong>Choir / room</strong>, <strong>Band / desk feed</strong>, <strong>Music &amp; video</strong>, or <strong>No processing</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Processor</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pan / Mono</strong></td>
+<td>Place the sound left–right; fold a one-sided mic to both sides.</td>
+</tr>
+<tr>
+<td><strong>Low cut</strong></td>
+<td>Removes rumble below the voice (stand thumps, air conditioning, traffic). 80–120 Hz for speech.</td>
+</tr>
+<tr>
+<td><strong>Noise suppression</strong></td>
+<td>Removes fans, hum and room noise from speech.</td>
+</tr>
+<tr>
+<td><strong>NVIDIA voice cleanup</strong></td>
+<td>AI noise removal (needs the free NVIDIA Broadcast audio effects runtime).</td>
+</tr>
+<tr>
+<td><strong>Noise gate</strong></td>
+<td>Closes the mic between words so a quiet room stays quiet.</td>
+</tr>
+<tr>
+<td><strong>Voice EQ</strong></td>
+<td>Four bands for clear speech.</td>
+</tr>
+<tr>
+<td><strong>EQ</strong></td>
+<td>Simple low/mid/high tone.</td>
+</tr>
+<tr>
+<td><strong>Gain</strong></td>
+<td>Boost or cut before the compressor.</td>
+</tr>
+<tr>
+<td><strong>Leveler</strong></td>
+<td>Lifts a speaker who steps back from the mic, without touching the loud parts.</td>
+</tr>
+<tr>
+<td><strong>Compressor</strong></td>
+<td>Evens out loud and soft speech.</td>
+</tr>
+<tr>
+<td><strong>De-esser</strong></td>
+<td>Softens harsh "s" and "sh" sounds.</td>
+</tr>
+<tr>
+<td><strong>Ducking</strong></td>
+<td>Dips this input while another one is speaking — put it on the music, keyed by the pastor's mic.</td>
+</tr>
+<tr>
+<td><strong>Limiter</strong></td>
+<td>A ceiling the stream never goes over.</td>
+</tr>
+<tr>
+<td><strong>Headphones</strong></td>
+<td>Off, Monitor only, or Monitor and stream.</td>
+</tr>
+<tr>
+<td><strong>Sync offset</strong></td>
+<td>Delays the sound to match a camera whose picture arrives late.</td>
+</tr>
+</tbody>
+</table>
+<p><a class="shot" href="images/audio-processing-speech-preset.png" target="_blank" rel="noopener"><img alt="The Speech mic preset applied" src="images/audio-processing-speech-preset.png" loading="lazy" /></a></p>
+<h3 id="stream-sound-the-master">Stream sound (the master)</h3>
+<p>The <strong>Stream sound</strong> card controls the final mix that goes to the stream and recording:</p>
+<ul>
+<li>The big number is the current loudness in <strong>LUFS</strong>, with average and peak.</li>
+<li>Choose a loudness target: <strong>−14</strong> (YouTube, Facebook), <strong>−16</strong> (podcasts, Apple) or <strong>−23</strong> (broadcast TV).</li>
+<li><strong>Auto level</strong> keeps the stream at that loudness automatically.</li>
+<li><strong>Glue</strong> gently compresses the whole mix so it sounds together.</li>
+<li><strong>Limiter</strong> makes sure the stream never clips.</li>
+<li><strong>Reset</strong> returns the master to untouched.</li>
+</ul>
+<p><a class="shot" href="images/audio-drawer.png" target="_blank" rel="noopener"><img alt="The audio drawer, opened from the top bar" src="images/audio-drawer.png" loading="lazy" /></a></p>
+<h3 id="audio-for-remote-guests">Audio for remote guests</h3>
+<p>See <strong>Call return (mix-minus)</strong> in <a href="#15-calls-virtual-camera-and-ndi-output">section 15</a>.</p>
+<hr />
+<h2 id="8-titles-and-lower-thirds">8. Titles and lower thirds</h2>
+<p>The <strong>Titles</strong> panel puts names, news straps, tickers, clocks, quotes and scripture over the picture. Titles are drawn into the Program picture itself, so they appear on the stream, the recording and everywhere else.</p>
+<p><a class="shot" href="images/titles-panel.png" target="_blank" rel="noopener"><img alt="Titles panel" src="images/titles-panel.png" loading="lazy" /></a></p>
+<h3 id="putting-a-name-on-screen">Putting a name on screen</h3>
+<ol>
+<li>Choose a <strong>category</strong> — <strong>Names</strong>, <strong>News</strong>, <strong>Ticker</strong>, <strong>Info &amp; clock</strong>, <strong>Quotes</strong>, <strong>Scripture</strong> or <strong>My designs</strong> (your own).</li>
+<li>Click a <strong>design</strong> in the gallery.</li>
+<li>Type in the fields — for a name: <strong>Name</strong> and <strong>Role or second line</strong>. The small preview at the top shows the result; you can <strong>drag the title to place it</strong> there.</li>
+<li>Optionally choose an <strong>Accent</strong> colour, a <strong>Hold</strong> time (Stay up, 5 s, 10 s, 20 s), <strong>Position &amp; size</strong>, and a <strong>Logo</strong> to sit beside the strap.</li>
+<li>Click:
+   - <strong>Cue</strong> — put it on Preview, so it goes on air with the next TAKE;
+   - <strong>Take to air</strong> — put it on Program now (it says <strong>Replace on air</strong> if another title is already up);
+   - <strong>Update</strong> — change the words of the title already on air without taking it off;
+   - <strong>Clear</strong> — take it off.</li>
+</ol>
+<p><a class="shot" href="images/lower-third-on-air.png" target="_blank" rel="noopener"><img alt="A lower third on Program" src="images/lower-third-on-air.png" loading="lazy" /></a></p>
+<p><strong>Rundown</strong> — <strong>+ Save this</strong> stores the current title (with its design and words) in a list, so you can prepare every name for a service in advance and put each up with one click.</p>
+<p>The ↻ button reloads the design list.</p>
+<h3 id="the-categories">The categories</h3>
+<table>
+<thead>
+<tr>
+<th>Names</th>
+<th>News</th>
+<th>Ticker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="shot" href="images/titles-panel.png" target="_blank" rel="noopener"><img alt="Names" src="images/titles-panel.png" loading="lazy" /></a></td>
+<td><a class="shot" href="images/titles-news.png" target="_blank" rel="noopener"><img alt="News" src="images/titles-news.png" loading="lazy" /></a></td>
+<td><a class="shot" href="images/titles-ticker.png" target="_blank" rel="noopener"><img alt="Ticker" src="images/titles-ticker.png" loading="lazy" /></a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Info &amp; clock</th>
+<th>Quotes</th>
+<th>Scripture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="shot" href="images/titles-info-clock.png" target="_blank" rel="noopener"><img alt="Info &amp; clock" src="images/titles-info-clock.png" loading="lazy" /></a></td>
+<td><a class="shot" href="images/titles-quotes.png" target="_blank" rel="noopener"><img alt="Quotes" src="images/titles-quotes.png" loading="lazy" /></a></td>
+<td><a class="shot" href="images/titles-scripture.png" target="_blank" rel="noopener"><img alt="Scripture" src="images/titles-scripture.png" loading="lazy" /></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-title-designer">The Title designer</h3>
+<p>Click <strong>+ Design</strong> to create your own titles, or the pencil on a design to start from a copy.</p>
+<p><a class="shot" href="images/designer-start.png" target="_blank" rel="noopener"><img alt="Choosing a starting design" src="images/designer-start.png" loading="lazy" /></a></p>
+<p>Start from a <strong>blank canvas</strong> or a template (Glass Name, Gradient Strap, Modern Pill, Minimal Line, Social Handle, Breaking Pro, Ticker Pro, Countdown Glass, Live Corner and more). Your copy is yours; the original stays as it is.</p>
+<p><a class="shot" href="images/designer-editing.png" target="_blank" rel="noopener"><img alt="Editing a design" src="images/designer-editing.png" loading="lazy" /></a></p>
+<ul>
+<li><strong>Add</strong> Text, Shape, Image, Clock or Ticker layers.</li>
+<li><strong>Layers</strong> list (top first) — show/hide and lock each layer.</li>
+<li>Select a layer to edit it on the right:</li>
+<li><strong>Content</strong> — the text, and a <strong>Field</strong> name. Fields become the boxes the operator types into (e.g. <em>headline</em>).</li>
+<li><strong>Position &amp; size</strong>, rotation, opacity, "hug the words" (plate grows with the text).</li>
+<li><strong>Type</strong> — font, size, weight, colour (or <em>accent</em>), alignment, spacing, capitals, italic, wrap, soft shadow.</li>
+<li><strong>Background</strong> — none, solid, gradient or radial; corners, padding, border, drop shadow, frosted glass.</li>
+<li><strong>Motion</strong> — how it comes on and goes off (wipe, fade, slide…), delay, time and easing. <strong>▶ Play</strong> previews it.</li>
+<li><strong>Design → Accent</strong>: colours set to <em>accent</em> follow the colour the operator picks for each take, so one design suits every ministry.</li>
+<li><strong>Behind</strong> shows the design over Program, a grid, dark or light.</li>
+<li><strong>Save</strong> stores it in <strong>My designs</strong>; <strong>Templates</strong> reopens the start list; <strong>Undo/Redo</strong>; <strong>Ctrl+D</strong> duplicates a layer; <strong>Space</strong> plays.</li>
+</ul>
+<hr />
+<h2 id="9-ai-auto-cue-scripture-and-songs-that-follow-the-speaker">9. AI Auto-cue: scripture and songs that follow the speaker</h2>
+<p>Auto-cue <strong>listens</strong> to a microphone and recognises, as people speak:</p>
+<ul>
+<li><strong>scripture references</strong> ("John three sixteen", "first Corinthians thirteen"),</li>
+<li><strong>verses quoted without a reference</strong>,</li>
+<li><strong>songs in your library</strong> being sung.</li>
+</ul>
+<p>It proposes the matching verse or lyric. <strong>Nothing reaches air until you choose an action</strong> (unless you switch on automatic mode).</p>
+<h3 id="setting-it-up">Setting it up</h3>
+<p>At the top of the Auto-cue panel, set <strong>Listening to</strong> to the pulpit microphone. The dot shows live, selected-but-silent or off. The choice is remembered.</p>
+<h3 id="searching-by-hand">Searching by hand</h3>
+<p>Type a reference or a few words into <strong>Search scripture</strong> — e.g. <em>John 3:16</em> or <em>for God so loved</em> — and pick the result.</p>
+<p><a class="shot" href="images/autocue-search.png" target="_blank" rel="noopener"><img alt="Searching scripture" src="images/autocue-search.png" loading="lazy" /></a></p>
+<h3 id="acting-on-a-match">Acting on a match</h3>
+<p>Each match shows the verse text, the reference and translation, and why it was found. Then choose:</p>
+<ul>
+<li><strong>Projector only</strong> — show it on the screens in the room, not the stream.</li>
+<li><strong>Queue on Preview</strong> — prepare it on Preview; the next TAKE puts it on air.</li>
+<li><strong>Fade onto Program</strong> — put it on air now.</li>
+</ul>
+<p><strong>‹ Previous / Next ›</strong> step through the neighbouring verses while it is up.</p>
+<p><a class="shot" href="images/autocue-match.png" target="_blank" rel="noopener"><img alt="A match ready to send" src="images/autocue-match.png" loading="lazy" /></a>
+<a class="shot" href="images/verse-cued-preview.png" target="_blank" rel="noopener"><img alt="The verse cued on Preview (Split · verse right design)" src="images/verse-cued-preview.png" loading="lazy" /></a>
+<a class="shot" href="images/verse-on-air.png" target="_blank" rel="noopener"><img alt="The verse on air" src="images/verse-on-air.png" loading="lazy" /></a></p>
+<h3 id="verse-graphic-settings">Verse graphic settings</h3>
+<p>Click <strong>Verse graphic</strong> at the top of the panel:</p>
+<p><a class="shot" href="images/verse-graphic-settings.png" target="_blank" rel="noopener"><img alt="Verse graphic settings" src="images/verse-graphic-settings.png" loading="lazy" /></a></p>
+<ul>
+<li><strong>Design</strong> — Branded look, Split · verse right, Split · verse left, Scripture Banner, Scripture Light, Scripture Glow, Scripture Colour, Scripture Panel.</li>
+<li><strong>Colour</strong> — the design's own, or an accent colour.</li>
+<li><strong>Second language</strong> — show the verse in two translations at once (for example English and Yorùbá). The primary translation is the one chosen in the Preacher panel.</li>
+<li><strong>When a verse is read out</strong> — <strong>Off</strong>, <strong>Cue on Preview</strong> (ready on Preview the moment it is read; TAKE puts it on air), or <strong>Straight to air</strong>.</li>
+<li><strong>Only when at least</strong> 70% / 80% / 90% sure.</li>
+<li><strong>Keep it up</strong> — until replaced or cleared, or for 20 s, 40 s or 1 minute.</li>
+<li><strong>Follow the singers</strong> — when a song is up, its words move to the verse or chorus being sung.</li>
+</ul>
+<h3 id="the-branded-look">The Branded look</h3>
+<p>Choose <strong>Branded look</strong> and click <strong>Edit look…</strong> to design a full-screen scripture graphic in your church's style: a background image or looping video, a box showing the preacher's live picture, the verse panel, fonts, colours and logos. Drag the boxes; the corner resizes. <strong>Try on Preview</strong> shows it for real.</p>
+<p><a class="shot" href="images/branded-look-editor.png" target="_blank" rel="noopener"><img alt="Branded look editor" src="images/branded-look-editor.png" loading="lazy" /></a></p>
+<p>Tip: have frames, dates and decorations painted into one 1920×1080 background image — it is then exactly as designed.</p>
+<hr />
+<h2 id="10-social-handles">10. Social handles</h2>
+<p>The <strong>Social</strong> tab of the Operations dock shows your social media handles in a corner of the picture, one at a time, on a schedule.</p>
+<p><a class="shot" href="images/dock-social-setup.png" target="_blank" rel="noopener"><img alt="Social handles setup" src="images/dock-social-setup.png" loading="lazy" /></a></p>
+<ol>
+<li>Click <strong>Setup</strong>, then <strong>Add handle</strong> for each one — platform and handle (e.g. Instagram, @yourchurch).</li>
+<li>Choose a <strong>Style</strong> (Corner Badge, Inline Tag, Brand Pill, Bottom Strip, Light Card, Dark Pill, Spotlight, Broadcast Badge, Light Strip), a <strong>Position</strong> (any corner), <strong>Rotation</strong> (how long each handle stays: 5–15 s) and how often they <strong>Appear</strong> (every 3, 5 or 10 minutes, or always on).</li>
+<li>Leave <strong>Step aside while a lower third is on air</strong> ticked so they never clash with a name.</li>
+<li>Click <strong>Put on air</strong>. <strong>Apply text</strong> updates the words; <strong>Take off</strong> removes them; <strong>Restart</strong> starts the rotation again.</li>
+</ol>
+<p><a class="shot" href="images/dock-social-on-air.png" target="_blank" rel="noopener"><img alt="Social handles on air" src="images/dock-social-on-air.png" loading="lazy" /></a>
+<a class="shot" href="images/social-on-program.png" target="_blank" rel="noopener"><img alt="A social handle on Program" src="images/social-on-program.png" loading="lazy" /></a></p>
+<p>The dock's <strong>SOCIAL ON / REPEATING / OFF</strong> pip tells you the state at a glance.</p>
+<hr />
+<h2 id="11-live-captions">11. Live captions</h2>
+<p>The <strong>Captions</strong> tab turns speech into subtitles, using the same speech recognition as auto-cue.</p>
+<p><a class="shot" href="images/dock-captions.png" target="_blank" rel="noopener"><img alt="Captions" src="images/dock-captions.png" loading="lazy" /></a></p>
+<ul>
+<li><strong>On the picture</strong> — burnt into the Program picture.</li>
+<li><strong>In stream &amp; recording (CC)</strong> — as closed captions viewers can turn on or off.</li>
+<li><strong>On the projector</strong> — for the room.</li>
+<li><strong>Translation</strong> — show a translated line under the captions.</li>
+<li>Position (<strong>Bottom, moves up for lower thirds</strong>; Always bottom; Always top), <strong>Size</strong> and <strong>Background</strong>.</li>
+</ul>
+<p>Finished sentences appear in the panel as they are spoken. Captions are also shown on paired phones and tablets (<a href="#20-remote-control-midi-and-stream-deck">section 20</a>).</p>
+<hr />
+<h2 id="12-vertical-916-for-tiktok-reels-and-shorts">12. Vertical 9:16 for TikTok, Reels and Shorts</h2>
+<p>The <strong>Vertical 9:16</strong> panel makes a second, portrait version of your show at the same time as the landscape one.</p>
+<p><a class="shot" href="images/vertical-canvas.png" target="_blank" rel="noopener"><img alt="Vertical canvas" src="images/vertical-canvas.png" loading="lazy" /></a></p>
+<ol>
+<li>Click <strong>Turn on</strong>. (It uses extra graphics-card power while on — "off costs nothing".)</li>
+<li><strong>Frame</strong>: 1080×1920 (9:16), 720×1280 (lighter), or 1080×1350 (4:5).</li>
+<li><strong>Framing</strong>: <strong>Fill</strong> (crop to fill), <strong>Fit</strong> (whole picture with bars), or <strong>Manual</strong> with <strong>Zoom</strong> and <strong>Pan</strong>.</li>
+<li><strong>Mirrors</strong>: <strong>Program</strong> (follows what is on air) or <strong>Preview</strong> (set the framing before the take).</li>
+</ol>
+<p>Stream it to a platform as <strong>Portrait 9:16</strong> (<a href="#13-going-live-streaming-platforms">section 13</a>) or record it (<a href="#14-recording-and-instant-replay">section 14</a>).</p>
+<hr />
+<h2 id="13-going-live-streaming-platforms">13. Going live: streaming platforms</h2>
+<p>The <strong>Outputs</strong> tab of the Operations dock streams to one or several platforms at once.</p>
+<p><a class="shot" href="images/dock-outputs-empty.png" target="_blank" rel="noopener"><img alt="No platforms yet" src="images/dock-outputs-empty.png" loading="lazy" /></a></p>
+<h3 id="adding-a-platform">Adding a platform</h3>
+<p>Click <strong>+ Add platform</strong> and choose <strong>YouTube, Facebook, Twitch, Vimeo, Restream, X (Twitter), Instagram, TikTok, LinkedIn, Kick</strong> or <strong>Other…</strong> (any RTMP server).</p>
+<p><a class="shot" href="images/dock-outputs-add.png" target="_blank" rel="noopener"><img alt="Choose a platform" src="images/dock-outputs-add.png" loading="lazy" /></a></p>
+<p>Then:</p>
+<ul>
+<li><strong>Name on this panel</strong> — e.g. "Church YouTube".</li>
+<li><strong>Stream key</strong> — paste it from the platform (the form tells you where to find it). The server address is filled in for you. The key is saved <strong>encrypted to your Windows account</strong> on this PC and never shown again.</li>
+<li><strong>Safety buffer</strong> — Off, 5, 10, 20, 30 or 60 seconds. Recommended: it rides out an internet dropout with nothing lost; viewers watch that far behind, and if the internet drops the stream picks up where it was cut instead of skipping.</li>
+<li><strong>Picture</strong> — <strong>Landscape 16:9 (Program)</strong> or <strong>Portrait 9:16</strong> (turn on the Vertical canvas first).</li>
+</ul>
+<p><a class="shot" href="images/dock-outputs-youtube.png" target="_blank" rel="noopener"><img alt="Adding YouTube" src="images/dock-outputs-youtube.png" loading="lazy" /></a></p>
+<h3 id="going-live">Going live</h3>
+<p><a class="shot" href="images/dock-outputs-ready.png" target="_blank" rel="noopener"><img alt="A platform ready to go" src="images/dock-outputs-ready.png" loading="lazy" /></a></p>
+<ul>
+<li>Tick the platforms you want, then <strong>Go live</strong> — or <strong>Start</strong> a single platform.</li>
+<li><strong>Test upload</strong> measures your upload speed first and tells you if it is enough ("needs about 6.7 Mbps upload").</li>
+<li>The top bar shows <strong>ON AIR</strong> and the elapsed time. Each platform shows its own state, and reconnects by itself if the connection drops.</li>
+<li><strong>Edit</strong> or <strong>×</strong> (remove) a platform.</li>
+</ul>
+<p>The stream bitrate is set in <strong>Video settings</strong> (<a href="#22-settings-languages-and-use-modes">section 22</a>). A good rule: about 70% of your measured upload speed.</p>
+<hr />
+<h2 id="14-recording-and-instant-replay">14. Recording and instant replay</h2>
+<h3 id="recording">Recording</h3>
+<p>The <strong>Recording</strong> tab records Program to a file on this computer.</p>
+<p><a class="shot" href="images/dock-recording.png" target="_blank" rel="noopener"><img alt="Recording" src="images/dock-recording.png" loading="lazy" /></a></p>
+<ul>
+<li><strong>Record</strong>, <strong>Pause</strong> and <strong>Split</strong> (close this file and start the next one, without a gap).</li>
+<li>The timer, file size and free disk space are always shown.</li>
+</ul>
+<p><strong>Settings</strong>:</p>
+<p><a class="shot" href="images/dock-recording-settings.png" target="_blank" rel="noopener"><img alt="Recording settings" src="images/dock-recording-settings.png" loading="lazy" /></a></p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Recording folder</strong></td>
+<td>Browse…, Open folder.</td>
+</tr>
+<tr>
+<td><strong>Record</strong></td>
+<td>Video + audio, or Audio only (.aac).</td>
+</tr>
+<tr>
+<td><strong>From</strong></td>
+<td>Program (16:9) or the Vertical canvas (9:16).</td>
+</tr>
+<tr>
+<td><strong>Container</strong></td>
+<td><strong>MKV</strong> or <strong>TS</strong> (survive a crash — recommended), MP4 or MOV (need a clean stop), FLV (one audio track only).</td>
+</tr>
+<tr>
+<td><strong>Audio tracks</strong></td>
+<td>1–6 separate tracks (e.g. a clean mic track for editing).</td>
+</tr>
+<tr>
+<td><strong>Rate control</strong></td>
+<td>CQP (constant quality), CBR, VBR or Lossless; CQ level (lower = better) or video bitrate.</td>
+</tr>
+<tr>
+<td><strong>Stop below (MB free)</strong></td>
+<td>The disk guard: recording stops safely before the disk is full.</td>
+</tr>
+<tr>
+<td><strong>Replay buffer</strong></td>
+<td>How many seconds the replay buffer keeps.</td>
+</tr>
+<tr>
+<td><strong>Split into new files</strong></td>
+<td>Every N seconds or N MB.</td>
+</tr>
+<tr>
+<td><strong>Reuse the streaming encoder</strong></td>
+<td>Uses less graphics power, but if the internet struggles the recording's quality drops with the stream's.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>If you try to close Tetra Mix while a recording is still being written, the app <strong>refuses to close</strong> until it has finished, so you never lose the end of a recording.</p>
+</blockquote>
+<h3 id="instant-replay">Instant replay</h3>
+<p>The <strong>Replay</strong> tab keeps the last few seconds of Program so you can show a moment again.</p>
+<p><a class="shot" href="images/dock-replay.png" target="_blank" rel="noopener"><img alt="Instant replay" src="images/dock-replay.png" loading="lazy" /></a></p>
+<ol>
+<li><strong>Arm</strong> the buffer (choose its length: last 5–60 seconds).</li>
+<li>When something happens, press <strong>▶ REPLAY</strong> to play it on air, <strong>To Preview</strong> to prepare it, or <strong>Save only</strong> to keep the clip without playing it.</li>
+<li><strong>Speed</strong>: normal, 75%, 50%, 33% or 25% slow motion.</li>
+<li><strong>Return to the previous shot when it ends</strong> — the replay cuts back by itself.</li>
+<li>Clips are saved to the <strong>Replay folder</strong> and listed under <strong>Clips this session</strong>.</li>
+</ol>
+<hr />
+<h2 id="15-calls-virtual-camera-and-ndi-output">15. Calls, virtual camera and NDI output</h2>
+<p>The <strong>Call &amp; Outputs</strong> tab sends your show to other programs and computers.</p>
+<p><a class="shot" href="images/dock-call-outputs.png" target="_blank" rel="noopener"><img alt="Call &amp; Outputs" src="images/dock-call-outputs.png" loading="lazy" /></a></p>
+<h3 id="virtual-camera">Virtual camera</h3>
+<p>Program as a webcam. In <strong>Zoom, Teams, Meet or WhatsApp</strong>, choose <strong>Tetra Virtual Camera</strong> as the camera. The first time, click <strong>Install camera</strong> (Windows asks for administrator permission once).</p>
+<h3 id="call-return-mix-minus">Call return (mix-minus)</h3>
+<p>What remote guests hear: <strong>the whole show except themselves</strong>, so they never hear an echo of their own voice. Send it to a virtual audio cable (such as the free VB-CABLE: choose "CABLE Input" here and "CABLE Output" as the microphone in the call app), then <strong>Start call return</strong>. Under <strong>Heard by callers</strong>, untick the call app's own sound (Zoom, Teams, WhatsApp… are unticked for you).</p>
+<h3 id="ndi-output">NDI® output</h3>
+<p>Send Program picture and sound over the network to another computer (vMix, OBS, NDI Studio Monitor) or an overflow screen. Click <strong>Start NDI</strong>.</p>
+<hr />
+<h2 id="16-the-projector-the-screens-in-the-room">16. The projector (the screens in the room)</h2>
+<p>Tetra Mix drives the projector or TV screens in the room separately from the stream: <strong>the projector is the room; the Program key is the stream</strong>. Clearing one never clears the other.</p>
+<p>The projector can show:</p>
+<ul>
+<li><strong>Slides</strong> — slides, lyrics and verses you send from the Presentation workspace;</li>
+<li><strong>Program</strong> — the live mixed picture, full screen;</li>
+<li><strong>Blank</strong> — black.</li>
+</ul>
+<p>Switch between Slides and Program with <strong>Ctrl+Shift+P</strong>, the <strong>To projector</strong> button above the Program monitor, or the <strong>Slides / Program</strong> buttons in the Presentation workspace's Projector panel. The projector window opens full screen on your second display.</p>
+<hr />
+<h2 id="17-the-presentation-workspace">17. The Presentation workspace</h2>
+<p>The Presentation workspace runs the service or event: the running order, songs, slides, documents, scripture and the sermon or key points.</p>
+<p><a class="shot" href="images/presentation-slides.png" target="_blank" rel="noopener"><img alt="The Presentation workspace" src="images/presentation-slides.png" loading="lazy" /></a></p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Left</td>
+<td><strong>Service</strong> clock and controls, <strong>Service Schedule</strong> (the running order), <strong>Songs</strong> library.</td>
+</tr>
+<tr>
+<td>Centre</td>
+<td><strong>Slides</strong>, <strong>Preacher</strong> (Bible) and <strong>Sermon points</strong> tabs.</td>
+</tr>
+<tr>
+<td>Right</td>
+<td><strong>Projector</strong> (what the room sees), <strong>Program key</strong> (what is keyed over the stream).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-service-clock">The Service clock</h3>
+<p>Shows <strong>Elapsed</strong> time, the current <strong>Item</strong> time, and whether you are <strong>On time</strong> (ahead or behind, once you set item lengths). <strong>NOW</strong> and <strong>NEXT</strong> show the current and next item.</p>
+<ul>
+<li><strong>Pre-roll</strong> — the countdown before you start.</li>
+<li><strong>Go live</strong> — start the service clock. Macros with a <em>Service moment</em> trigger run at this point — for example, to start the stream and recording (<a href="#19-macros-automating-the-routine">section 19</a>).</li>
+<li>During the service: <strong>Next item (N)</strong>, <strong>Previous item (B)</strong>, <strong>Pause</strong> / <strong>Resume</strong> the clock, <strong>End</strong> the service. <strong>Reset</strong> clears progress.</li>
+</ul>
+<h3 id="the-service-schedule">The Service Schedule</h3>
+<p>The running order for today. Add songs from the library with <strong>+</strong>, and documents (PDF, PowerPoint, Word, Excel, images) with <strong>+ Document</strong>. Click an item to load its slides. For each item you can set a <strong>planned length</strong> (click the time; m or m:ss) — it drives the ahead/behind clock — and move or remove items.</p>
+<h3 id="songs">Songs</h3>
+<p><a class="shot" href="images/song-editor.png" target="_blank" rel="noopener"><img alt="The song editor" src="images/song-editor.png" loading="lazy" /></a></p>
+<ul>
+<li><strong>New</strong> — type a song: title, authors, CCLI number, copyright, and lyrics. Put a section name on its own line (Verse 1, Chorus, Bridge), then the words; a blank line starts the next section. Each section becomes one slide. <strong>Ctrl+Enter</strong> saves.</li>
+<li><strong>Import</strong> — OpenLyrics/OpenLP (.xml), CCLI SongSelect (.txt) or plain text files.</li>
+<li><strong>Search</strong> titles, authors or a remembered line.</li>
+<li>The pencil edits a song; <strong>+</strong> adds it to today's schedule.</li>
+</ul>
+<p>Every song in the library is also recognised by Auto-cue (<a href="#9-ai-auto-cue-scripture-and-songs-that-follow-the-speaker">section 9</a>).</p>
+<h3 id="slides">Slides</h3>
+<p>Pick an item in the schedule and its slides appear as cards. Use <strong>← →</strong> (or Page Up / Page Down) to step.</p>
+<ul>
+<li><strong>Slide text</strong> — edit the words before you send (edits apply when you send).</li>
+<li><strong>Send to Projector</strong> — show the selected slide in the room.</li>
+<li><strong>Fade onto Program</strong> — key it over the stream.</li>
+<li><strong>Design</strong> — the on-air look for slides and verses keyed over Program.</li>
+</ul>
+<p>For a document item there are also <strong>Speaker on Preview</strong> (the speaker's camera alone) and <strong>Speaker + slides on Preview</strong> (camera and slides together), and an option to cue that layout automatically when the document item goes live.</p>
+<p><a class="shot" href="images/on-air-design-picker.png" target="_blank" rel="noopener"><img alt="Choosing the on-air design" src="images/on-air-design-picker.png" loading="lazy" /></a></p>
+<h3 id="preacher-church-mode">Preacher (Church mode)</h3>
+<p><a class="shot" href="images/presentation-preacher.png" target="_blank" rel="noopener"><img alt="The Preacher panel with a parallel Yorùbá translation" src="images/presentation-preacher.png" loading="lazy" /></a></p>
+<ul>
+<li>Choose the <strong>translation</strong> — about 30, including KJV, NKJV, ESV, NLT, NASB, CSB, AMP, NIrV, WEB, ASV, Geneva, YLT and three Yorùbá Bibles (Bibeli Mimo, 2010 and 2014).</li>
+<li>Type a reference and press <strong>Go</strong> (or <strong>Ctrl+B</strong> from anywhere). Abbreviations and spoken forms work: <em>jn3:16</em>, <em>1cor 13</em>, <em>first john 1 9</em>, <em>ps 23</em>.</li>
+<li><strong>Follow</strong> — the preacher's own words bring you to the passage automatically.</li>
+<li><strong>Transition to the screens</strong> — Cut, Fade through black, Dissolve, Rise, Push left/right, Wipe, Zoom, Soften; <strong>Duration</strong>.</li>
+<li><strong>Verses/slide</strong> — 1, 2 or 3.</li>
+<li><strong>Parallel translation</strong> — show a second translation (stacked or side by side; ⇅ swaps them).</li>
+<li><strong>Send</strong> (<strong>Enter</strong>) puts the verse on the projector; <strong>← →</strong> step verses; <strong>Program</strong> (<strong>Ctrl+Enter</strong>) keys it over the stream.</li>
+</ul>
+<p><a class="shot" href="images/presentation-preacher-keyed.png" target="_blank" rel="noopener"><img alt="A verse keyed over Program from the Preacher panel" src="images/presentation-preacher-keyed.png" loading="lazy" /></a></p>
+<h3 id="sermon-points-key-points">Sermon points / Key points</h3>
+<p>Paste the speaker's notes as a <strong>pack</strong> with <strong>New</strong>: one point per paragraph, with a blank line between them; start a paragraph with <code># Heading</code> to name it. Click a point to put it on the projector or the stream, or turn on <strong>Follow</strong> and the speaker's own words select it.</p>
+<p><a class="shot" href="images/presentation-sermon-points.png" target="_blank" rel="noopener"><img alt="Sermon points" src="images/presentation-sermon-points.png" loading="lazy" /></a></p>
+<h3 id="projector-and-program-key-panels">Projector and Program key panels</h3>
+<p>The right column always shows <strong>both outputs</strong>: what the room sees (with <strong>Blank</strong>, <strong>Slides</strong>, <strong>Program</strong>) and what is keyed over the stream (with <strong>Clear</strong>).</p>
+<hr />
+<h2 id="18-cameras-ai-director-auto-framing-and-ptz">18. Cameras: AI director, auto-framing and PTZ</h2>
+<p>The <strong>Cameras</strong> tab of the Operations dock.</p>
+<p><a class="shot" href="images/dock-cameras.png" target="_blank" rel="noopener"><img alt="Cameras" src="images/dock-cameras.png" loading="lazy" /></a></p>
+<h3 id="director-shot-suggestions">Director — shot suggestions</h3>
+<p>The director watches who is speaking and suggests camera changes:</p>
+<ul>
+<li><strong>Suggest shots</strong> — suggestions appear under the transition bar; accept or dismiss each one.</li>
+<li><strong>Auto-take (armed)</strong> — let it take the shots itself, with Fade or Cut.</li>
+<li><strong>Min shot</strong> (seconds) and <strong>Max cuts/min</strong> keep it from cutting too often.</li>
+<li><strong>+ Speaker</strong> — "when this mic clearly leads for 1.5 s, suggest this camera".</li>
+<li><strong>Wide shot</strong> — go to a wide camera after N seconds of silence.</li>
+<li><strong>+ Item rule</strong> — per service item (e.g. "Worship" → choir camera).</li>
+<li>A counter shows suggestions made, accepted and declined.</li>
+</ul>
+<h3 id="auto-framing">Auto-framing</h3>
+<p>Choose a camera and press <strong>Follow</strong>: the picture is cropped smoothly to keep the person framed, like a camera operator. <strong>Loose ↔ Tight</strong> sets how close; <strong>Gentle ↔ Quick</strong> sets how fast it follows. One camera at a time.</p>
+<h3 id="ptz-cameras-visca">PTZ cameras (VISCA)</h3>
+<p><strong>+ Camera</strong> adds a PTZ camera that speaks VISCA over the network. Hold an arrow to move, release to stop. Presets: click to recall, <strong>Shift+click</strong> to store.</p>
+<hr />
+<h2 id="19-macros-automating-the-routine">19. Macros: automating the routine</h2>
+<p>The <strong>Macros</strong> tab runs a list of steps with one key, at a time, or on an event.</p>
+<p><a class="shot" href="images/dock-macros.png" target="_blank" rel="noopener"><img alt="Macros" src="images/dock-macros.png" loading="lazy" /></a></p>
+<p>Three ready-made macros are included: <strong>Start service</strong> (Ctrl+Shift+1), <strong>End service</strong> (Ctrl+Shift+0) and <strong>Pulpit look for the sermon</strong> (when the "Sermon" service item is taken). Click a macro to edit it, <strong>New</strong> to make one, <strong>Run</strong> to run it now.</p>
+<p><a class="shot" href="images/dock-macro-editor.png" target="_blank" rel="noopener"><img alt="Editing a macro" src="images/dock-macro-editor.png" loading="lazy" /></a></p>
+<ul>
+<li><strong>Trigger</strong> — Manual only, Hotkey, Engine event, Time of day, or Service moment.</li>
+<li><strong>Steps</strong> — Cut, Fade, Stage input on Preview, Load saved scene, Wait, Wait for take to finish, Start/Stop recording, Start/Stop streaming, Show/Hide lower third, Next service item, Next slide, Load all cameras. Reorder with the arrows.</li>
+<li><strong>Enabled</strong> — the macro can run.</li>
+<li><strong>Armed</strong> — allowed to change what is on air. (A macro that is not armed cannot touch Program.)</li>
+<li><strong>Cooldown</strong> — the minimum time between runs.</li>
+<li><strong>Edit as JSON</strong>, duplicate and delete.</li>
+</ul>
+<hr />
+<h2 id="20-remote-control-midi-and-stream-deck">20. Remote control, MIDI and Stream Deck</h2>
+<h3 id="remote-control-from-phones-and-tablets">Remote control from phones and tablets</h3>
+<p>Click the <strong>phone icon</strong> in the top bar.</p>
+<p><a class="shot" href="images/remote-control.png" target="_blank" rel="noopener"><img alt="Remote control" src="images/remote-control.png" loading="lazy" /></a></p>
+<ol>
+<li>Tick <strong>Turn on remote control</strong>. Only this computer can connect until you also tick <strong>Let phones and tablets on this network connect</strong>. Use a staff Wi-Fi network, not guest Wi-Fi: the connection is only as private as your Wi-Fi.</li>
+<li>Choose a role and click <strong>Show pairing code</strong>:
+   - <strong>Viewer</strong> — sees what is on air (Preview, Program and the live captions). Cannot change anything.
+   - <strong>Presenter</strong> — also next/previous slide and service item. What a preacher's phone needs.
+   - <strong>Operator</strong> — also CUT and FADE.</li>
+<li>On the phone, scan the QR code (or open the address shown and type the 6 digits) and give the device a name.</li>
+</ol>
+<p><a class="shot" href="images/remote-control-pairing.png" target="_blank" rel="noopener"><img alt="Pairing a phone" src="images/remote-control-pairing.png" loading="lazy" /></a></p>
+<p>Every paired device is listed; you can change its role or revoke it at any time.</p>
+<h3 id="midi-controllers-and-stream-deck">MIDI controllers and Stream Deck</h3>
+<p>The <strong>Controllers</strong> tab:</p>
+<p><a class="shot" href="images/dock-controllers.png" target="_blank" rel="noopener"><img alt="Controllers" src="images/dock-controllers.png" loading="lazy" /></a></p>
+<ul>
+<li><strong>MIDI controller</strong> — choose it (or <strong>Rescan</strong>), pick an action under <strong>Map a pad</strong> (TAKE, CUT, input N to Preview, cut input N, instant replay on air / to Preview, save a replay, clear titles and social handles, mute/unmute an input, next/previous slide), click <strong>Learn</strong>, then press the pad.</li>
+<li><strong>Stream Deck / Bitfocus Companion</strong> — turn on Remote control and pair a device as <strong>Operator</strong> named "Stream Deck". Then copy a ready-made URL for each action and use it in a Stream Deck <em>Website</em> action ("GET request in background") or a Companion HTTP GET. Revoking the device switches its buttons off.</li>
+</ul>
+<hr />
+<h2 id="21-setups-saving-and-opening-a-whole-show">21. Setups: saving and opening a whole show</h2>
+<p>A <strong>setup</strong> saves the whole show: inputs, cameras, saved scenes, the auto-cue microphone and more. Click the setup name in the top bar.</p>
+<p><a class="shot" href="images/setups.png" target="_blank" rel="noopener"><img alt="Setups" src="images/setups.png" loading="lazy" /></a></p>
+<ul>
+<li><strong>Save as setup…</strong> (<strong>Ctrl+S</strong>), <strong>Save as new…</strong> (<strong>Ctrl+Shift+S</strong>), <strong>Open</strong> (<strong>Ctrl+O</strong>), <strong>Import</strong> a setup file.</li>
+<li><strong>Open cameras</strong> — whether opening a setup also opens its cameras.</li>
+<li>Each saved setup can be renamed, duplicated, exported, given notes, or deleted.</li>
+</ul>
+<p>Tip: keep one setup per kind of event — "Sunday service", "Midweek", "Conference".</p>
+<hr />
+<h2 id="22-settings-languages-and-use-modes">22. Settings, languages and use modes</h2>
+<h3 id="video-settings">Video settings</h3>
+<p>Click the <strong>monitor icon</strong> in the top bar.</p>
+<p><a class="shot" href="images/video-settings.png" target="_blank" rel="noopener"><img alt="Video settings" src="images/video-settings.png" loading="lazy" /></a></p>
+<ul>
+<li><strong>Resolution</strong> — e.g. 1920×1080 (1080p) or 1280×720.</li>
+<li><strong>Frame rate</strong> — e.g. 30 or 60 fps.</li>
+<li><strong>Stream bitrate (kbps)</strong> — changes the live stream at once. Use about 70% of your measured upload speed. Typical: 720p30 2500–4000, 1080p30 4500–6000, 1080p60 6000–9000.</li>
+</ul>
+<h3 id="use-modes">Use modes</h3>
+<p>Choose <strong>Church</strong>, <strong>Events</strong>, <strong>Education</strong> or <strong>General</strong> in the top bar. The app's wording follows: for example "Service" becomes "Event", "Service Schedule" becomes "Running order", and "Sermon points" becomes "Key points"; the Preacher (Bible) panel appears only in Church mode.</p>
+<p><a class="shot" href="images/use-mode-events.png" target="_blank" rel="noopener"><img alt="Events mode" src="images/use-mode-events.png" loading="lazy" /></a></p>
+<h3 id="language">Language</h3>
+<p>Choose <strong>English</strong> or <strong>Yorùbá</strong> in the top bar. The choice is per computer.</p>
+<p><a class="shot" href="images/language-yoruba.png" target="_blank" rel="noopener"><img alt="The app in Yorùbá" src="images/language-yoruba.png" loading="lazy" /></a></p>
+<h3 id="about">About</h3>
+<p>The <strong>ⓘ</strong> button: version, <strong>Report a problem</strong>, <strong>Ask a question or share an idea</strong>, <strong>Email us</strong>, <strong>Support Tetra Mix</strong>, and <strong>Licences and source code</strong> (the video engine is built on OBS Studio, GNU GPL v2; the source is included with the app).</p>
+<p><a class="shot" href="images/about.png" target="_blank" rel="noopener"><img alt="About" src="images/about.png" loading="lazy" /></a></p>
+<hr />
+<h2 id="23-keyboard-shortcuts-and-the-command-palette">23. Keyboard shortcuts and the command palette</h2>
+<p>Press <strong>?</strong> to see the shortcut map at any time.</p>
+<p><a class="shot" href="images/keyboard-shortcuts.png" target="_blank" rel="noopener"><img alt="Keyboard shortcuts" src="images/keyboard-shortcuts.png" loading="lazy" /></a></p>
+<table>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ctrl+K</strong></td>
+<td>Command palette</td>
+</tr>
+<tr>
+<td><strong>Ctrl+1 / Ctrl+2</strong></td>
+<td>Switcher / Presentation workspace</td>
+</tr>
+<tr>
+<td><strong>Ctrl+Shift+P</strong></td>
+<td>Projector: slides ↔ Program</td>
+</tr>
+<tr>
+<td><strong>?</strong></td>
+<td>Shortcut map</td>
+</tr>
+<tr>
+<td><strong>Esc</strong></td>
+<td>Close an overlay / clear focus</td>
+</tr>
+<tr>
+<td><strong>1–7</strong></td>
+<td>Arm Cut, Fade, Slide, Wipe, Move, Stinger, Glide</td>
+</tr>
+<tr>
+<td><strong>Space</strong> or <strong>Enter</strong></td>
+<td>TAKE</td>
+</tr>
+<tr>
+<td><strong>F1–F12</strong></td>
+<td>Stage input 1–12 on Preview</td>
+</tr>
+<tr>
+<td><strong>Shift+F1–F12</strong></td>
+<td>Cut input 1–12 straight to Program</td>
+</tr>
+<tr>
+<td>Double-click a tile</td>
+<td>Take with the armed transition</td>
+</tr>
+<tr>
+<td>Shift+click a tile</td>
+<td>Cut straight to Program</td>
+</tr>
+<tr>
+<td><strong>→ / PgDn</strong></td>
+<td>Next slide</td>
+</tr>
+<tr>
+<td><strong>← / PgUp</strong></td>
+<td>Previous slide</td>
+</tr>
+<tr>
+<td><strong>N / B</strong></td>
+<td>Next / previous service item</td>
+</tr>
+<tr>
+<td><strong>Ctrl+B</strong></td>
+<td>Go to the Bible reference box</td>
+</tr>
+<tr>
+<td><strong>Enter / Ctrl+Enter</strong></td>
+<td>(Preacher) Send to projector / key over Program</td>
+</tr>
+<tr>
+<td><strong>Ctrl+S / Ctrl+Shift+S / Ctrl+O</strong></td>
+<td>Save setup / Save as new / Open</td>
+</tr>
+<tr>
+<td><strong>Ctrl+Z / Ctrl+Y</strong></td>
+<td>Undo / redo on the stage and in the designer</td>
+</tr>
+<tr>
+<td><strong>Ctrl+Shift+1 / Ctrl+Shift+0</strong></td>
+<td>Start service / End service macros</td>
+</tr>
+</tbody>
+</table>
+<p>Bare keys (like Space and the numbers) are ignored while you are typing in a text box, so you can never fire a take by accident while typing a name.</p>
+<h3 id="the-command-palette">The command palette</h3>
+<p><strong>Ctrl+K</strong> opens a search box for <strong>every</strong> action in the app — transitions, staging any input, muting any input, titles, auto-cue actions, slides, projector, service clock, songs, setups, system check, and more. Type a few letters and press Enter. Actions that can't run right now are greyed out with the reason ("no slide staged").</p>
+<p><a class="shot" href="images/command-palette.png" target="_blank" rel="noopener"><img alt="Command palette" src="images/command-palette.png" loading="lazy" /></a></p>
+<hr />
+<h2 id="24-troubleshooting">24. Troubleshooting</h2>
+<table>
+<thead>
+<tr>
+<th>What you see</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A red banner says <strong>VIDEO ENGINE NOT RESPONDING</strong></td>
+<td>If the engine has crashed, it restarts itself within a couple of seconds and a banner tells you when it is back. If it keeps happening, run System check and update your graphics driver.</td>
+</tr>
+<tr>
+<td>A banner says <strong>Recording is losing frames</strong></td>
+<td>The graphics card can't keep up with everything at once. Lower the resolution or frame rate in Video settings, or turn off the Vertical canvas.</td>
+</tr>
+<tr>
+<td>A banner says <strong>The stream stopped and is not back on air</strong></td>
+<td>The internet connection dropped for longer than the safety buffer. Check the connection; the platform reconnects by itself when it can, or press <strong>Start</strong> on it in Outputs.</td>
+</tr>
+<tr>
+<td>"<strong>command queue is full - the engine is busy, try again</strong>"</td>
+<td>Wait a moment and try again.</td>
+</tr>
+<tr>
+<td>The <strong>Add</strong> button in Inputs is greyed out just after starting</td>
+<td>The engine was still starting. Run <strong>Refresh the input list</strong> from the command palette (Ctrl+K).</td>
+</tr>
+<tr>
+<td>A multiview tile or monitor says <strong>No signal</strong></td>
+<td>The input has no picture yet (camera closed, video ended, window minimised). For video files, turn <strong>Loop</strong> on.</td>
+</tr>
+<tr>
+<td>Auto-cue doesn't react</td>
+<td>Check <strong>Listening to</strong> at the top of the Auto-cue panel is set to the right microphone, and that its meter moves.</td>
+</tr>
+<tr>
+<td>The app won't close</td>
+<td>A recording is still being written. Wait for it to finish — the app closes by itself when it is safe.</td>
+</tr>
+<tr>
+<td>Viewers hear an echo of remote guests</td>
+<td>Use <strong>Call return (mix-minus)</strong> in Call &amp; Outputs and untick the call app under <em>Heard by callers</em>.</td>
+</tr>
+<tr>
+<td><strong>NVIDIA voice cleanup</strong> is greyed out</td>
+<td>Install the free NVIDIA Broadcast audio effects runtime, then restart the app.</td>
+</tr>
+</tbody>
+</table>
+<p>For anything else, use <strong>ⓘ → Report a problem</strong>.</p>
+<hr />
+<h2 id="25-glossary">25. Glossary</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Preview (PVW)</strong></td>
+<td>The shot you are preparing. Not seen by viewers.</td>
+</tr>
+<tr>
+<td><strong>Program (PGM)</strong></td>
+<td>What is on air: the stream, recording and outputs.</td>
+</tr>
+<tr>
+<td><strong>TAKE</strong></td>
+<td>Move Preview to Program with the armed transition.</td>
+</tr>
+<tr>
+<td><strong>Cut</strong></td>
+<td>An instant change of shot.</td>
+</tr>
+<tr>
+<td><strong>Armed</strong></td>
+<td>The transition that Space will use (red outline). For macros and the director: allowed to change what is on air.</td>
+</tr>
+<tr>
+<td><strong>AFV</strong></td>
+<td>Audio follows video: an input is heard only while its picture is on Program.</td>
+</tr>
+<tr>
+<td><strong>Key / keyed</strong></td>
+<td>A graphic laid over the Program picture.</td>
+</tr>
+<tr>
+<td><strong>Lower third</strong></td>
+<td>A name or caption strap in the lower part of the screen.</td>
+</tr>
+<tr>
+<td><strong>Multiview</strong></td>
+<td>The grid of small live pictures of every input.</td>
+</tr>
+<tr>
+<td><strong>Scene</strong></td>
+<td>A saved arrangement of inputs.</td>
+</tr>
+<tr>
+<td><strong>Setup</strong></td>
+<td>A saved whole show (inputs, scenes, settings).</td>
+</tr>
+<tr>
+<td><strong>PiP</strong></td>
+<td>Picture-in-picture: a small picture over a full one.</td>
+</tr>
+<tr>
+<td><strong>Stinger</strong></td>
+<td>A short animated clip that plays over a transition.</td>
+</tr>
+<tr>
+<td><strong>T-bar</strong></td>
+<td>The slider for mixing between Preview and Program by hand.</td>
+</tr>
+<tr>
+<td><strong>LUFS</strong></td>
+<td>A measure of loudness. Platforms expect about −14 LUFS.</td>
+</tr>
+<tr>
+<td><strong>Mix-minus</strong></td>
+<td>A mix that leaves out the person it is sent to, so they don't hear themselves.</td>
+</tr>
+<tr>
+<td><strong>NDI®</strong></td>
+<td>A standard for sending video over a computer network.</td>
+</tr>
+<tr>
+<td><strong>PTZ</strong></td>
+<td>Pan-tilt-zoom: a camera that can be moved remotely.</td>
+</tr>
+<tr>
+<td><strong>Safety buffer</strong></td>
+<td>Seconds of stream held back so an internet dropout loses nothing.</td>
+</tr>
+<tr>
+<td><strong>9:16</strong></td>
+<td>Portrait video, as used by TikTok, Reels and Shorts.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>NDI® is a registered trademark of Vizrt NDI AB. Tetra Mix's video engine is built on OBS Studio (GNU GPL v2). © 2026 TetraMos Technologies.</em></p>
+</main>
+</div>
+<script>
+document.querySelectorAll('nav a.sec').forEach(a => a.addEventListener('click', () => document.getElementById('nav').classList.remove('open')));
+</script>
+</body></html>
